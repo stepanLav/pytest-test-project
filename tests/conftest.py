@@ -1,6 +1,11 @@
 import pytest
 from src.calculator import Calculator
 
+@pytest.fixture(autouse=True)
+def print_test_name(request):
+    """Print the name of the test being executed"""
+    print(f"\n\n\nRunning test: {request.node.name}\n\n\n")
+
 @pytest.fixture
 def calculator(request):
     """Basic calculator fixture"""
